@@ -4,14 +4,12 @@ import string
 import unicodedata
 import nltk
 from nltk import RegexpTokenizer
-from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 
 stopwords = set(stopwords.words("english")) # set() speeds up stopword removal
 punct_dict = dict((ord(punct), None) for punct in string.punctuation)
 
 wnl = nltk.WordNetLemmatizer()
-stemmer = PorterStemmer()
 tokenizer = RegexpTokenizer(r'\w+')
 
 
@@ -137,65 +135,3 @@ def remove_punctuation(text):
     """
     sent = text.translate(punct_dict)
     return sent
-
-### OLD ###
-
-# def get_stanford_stopwords():
-#     url = 'https://raw.githubusercontent.com/stanfordnlp/CoreNLP/master/data/edu/' \
-#           'stanford/nlp/patterns/surface/stopwords.txt'
-#     response = requests.get(url)
-#     stopwords = response.text
-#     # print(stopwords[:20])
-#     return stopwords
-
-# def nltk_tag_to_wordnet_tag(nltk_tag):
-#     if nltk_tag.startswith('J'):
-#         return wordnet.ADJ
-#     elif nltk_tag.startswith('V'):
-#         return wordnet.VERB
-#     elif nltk_tag.startswith('N'):
-#         return wordnet.NOUN
-#     elif nltk_tag.startswith('R'):
-#         return wordnet.ADV
-#     else:
-#         return None
-#
-# def lemmatize_sentence(sentence):
-#
-#     # tokenize the sentence and find the POS tag for each token
-#     nltk_tagged = nltk.pos_tag(nltk.word_tokenize(sentence))
-#
-#     # tuple of (token, wordnet_tag)
-#     wordnet_tagged = map(lambda x: (x[0], nltk_tag_to_wordnet_tag(x[1])), nltk_tagged) # IS A map object
-#     # print(list(wordnet_tagged))
-#
-#     lemmatized_sentence = []
-#     for word, tag in list(wordnet_tagged):
-#         # print(word, tag, wnl.lemmatize(word, tag))
-#         try:
-#             lemmatized_sentence.append(wnl.lemmatize(word, tag))
-#         except:
-#             lemmatized_sentence.append(word)
-#     # print(lemmatized_sentence)
-#     return " ".join(lemmatized_sentence)
-#
-# def sent_tokenize(raw):
-#     # converts to list of sentences
-#     sents = nltk.sent_tokenize(raw)
-#     return sents
-#
-# def pre_process(raw):
-#     corpus = []
-#     sents = sent_tokenize(raw)
-#     for sent in sents:
-#         # lower case and remove special characters\\whitespaces
-#         sent = re.sub(r'[^0-9a-zA-Z\s]', '', sent, re.I | re.A)
-#         sent = sent.lower()
-#         sent = sent.strip()
-#
-#         text = lemmatize_sentence(sent)
-#         text = remove_stopwords(text)
-#     #     text = remove_punctuation_sentence(text)
-#         corpus.append(text)
-#         # print(text)
-#     return corpus

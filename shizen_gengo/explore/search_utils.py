@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 
-import pandas as pd
-import numpy as np
-
-# https://stackoverflow.com/questions/37894003/how-to-make-pandas-dataframe-str-contains-search-faster
 def search(df, dataframe_col, tok = ''):
     """
     This functions converts the dataframe column to a list for faster searching.

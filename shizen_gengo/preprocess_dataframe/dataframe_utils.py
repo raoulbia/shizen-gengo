@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import pandas as pd
-
 def rename_col(df_column_names, before, after):
     """
 
