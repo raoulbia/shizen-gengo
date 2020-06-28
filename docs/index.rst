@@ -22,14 +22,4 @@ Contents:
 Changelog
 *********
 
-v 0.1.0
--------
-
-    - test
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+* v 0.1.1 pre-release
