@@ -32,9 +32,10 @@ setup(
                   ],
   extras_require={'docs': ['commonmark',
                            'recommonmark',
-                         'sphinx',
-                         'sphinx_rtd_theme',
-                         'sphinxcontrib.bibtex'],
+                            'sphinx',
+                            'sphinx_rtd_theme',
+                            'sphinxcontrib.bibtex',
+                            'sphinxcontrib.inlinesyntaxhighlight'],
                 'tests': ['pytest']
                 }
 

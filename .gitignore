@@ -90,5 +90,3 @@ false
 
 # Mypy cache
 .mypy_cache/
-
-# Local Data

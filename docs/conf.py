@@ -40,8 +40,16 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinxcontrib.bibtex',
     'sphinx.ext.napoleon',
-    'sphinx.ext.autosummary'
+    'sphinx.ext.autosummary',
+    'sphinxcontrib.inlinesyntaxhighlight'
 ]
+
+# use language set by highlight directive if no language is set by role
+inline_highlight_respect_highlight = False
+
+# use language set by highlight directive if no role is set
+inline_highlight_literals = False
+
 #
 
 # autosummary_generate = True

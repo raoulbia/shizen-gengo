@@ -6,6 +6,8 @@ sphinx
 sphinx_rtd_theme
 recommonmark
 sphinxcontrib.bibtex
+sphinxcontrib.inlinesyntaxhighlight
+
 #sphinx_automodapi
 
 pytest==5.3.1
