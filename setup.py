@@ -1,43 +1,38 @@
 # -*- coding: utf-8 -*-
 
-from setuptools import setup, find_packages
+from distutils.core import setup
+from setuptools import find_packages
 
-import shizen_gengo
-
-VERSION = shizen_gengo.__version__
-NAME = 'shizen_gengo'
-DESCRIPTION = 'A set of python functions for common hand-on NLP tasks'
-
-with open('README.md') as f:
-    LONG_DESCRIPTION = f.read()
-
-AUTHOR = 'Raoul Biagioni'
-AUTHOR_EMAIL = 'raoulbia.research@gmail.com'
-URL = 'https://github.com/raoulbia/shizen_gengo.git'
-DOWNLOAD_URL = 'https://github.com/raoulbia/shizen_gengo/archive/0.1.0.tar.gz'
-
-with open('LICENSE') as f:
-    LICENSE = f.read()
+# read the contents of your README file
+from os import path
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
-    name=NAME,
-    version=VERSION,
-    description=DESCRIPTION,
-    long_description=LONG_DESCRIPTION,
-    author=AUTHOR,
-    author_email = AUTHOR_EMAIL,
-    url=URL,
-    download_url = DOWNLOAD_URL,
-    install_requires=['nltk',
-                      'pandas',
-                      'numpy'
-                      ],
-    license=LICENSE,
-    packages=find_packages(exclude=('tests', 'docs')),
-    extras_require={'docs': ['recommonmark',
-                             'sphinx',
-                             'sphinx_rtd_theme',
-                             'sphinxcontrib.bibtex'],
-                    'tests':['pytest']
-                    }
+  name = 'shizen_gengo',
+  # packages = ['shizen_gengo'],
+  packages=find_packages(exclude=('tests', 'docs')),
+  version = '0.1.0',
+  license='	gpl-3.0',
+  description = 'Python Library for common NLP Tasks',
+  long_description=long_description,
+  long_description_content_type='text/markdown',
+  author = 'raoul biagioni',
+  author_email = 'raoulbia.research@gmail.com',
+  url = 'https://github.com/raoulbia/shizen_gengo.git',
+  download_url = 'https://github.com/raoulbia/shizen_gengo/archive/0.1.0.tar.gz',
+  keywords = ['nlp', 'pandas', 'dataframe'],
+  install_requires=['nltk',
+                  'pandas',
+                  'numpy'
+                  ],
+  extras_require={'docs': ['recommonmark',
+                         'sphinx',
+                         'sphinx_rtd_theme',
+                         'sphinxcontrib.bibtex'],
+                'tests': ['pytest']
+                }
+
 )
+
