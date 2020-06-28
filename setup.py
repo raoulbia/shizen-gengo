@@ -21,13 +21,17 @@ setup(
   author = 'raoul biagioni',
   author_email = 'raoulbia.research@gmail.com',
   url = 'https://github.com/raoulbia/shizen_gengo.git',
+  project_urls={
+        "Documentation": "https://shizen-gengo.readthedocs.io/en/latest/"
+    },
   download_url = 'https://github.com/raoulbia/shizen_gengo/archive/0.1.0.tar.gz',
   keywords = ['nlp', 'pandas', 'dataframe'],
   install_requires=['nltk',
                   'pandas',
                   'numpy'
                   ],
-  extras_require={'docs': ['recommonmark',
+  extras_require={'docs': ['commonmark',
+                           'recommonmark',
                          'sphinx',
                          'sphinx_rtd_theme',
                          'sphinxcontrib.bibtex'],

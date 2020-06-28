@@ -1,5 +1,5 @@
 """
-this text is in shizen_gengo/explore/init.py
+Functions to search for text in a pandas dataframe column.
 """
 
 from .search_utils import search

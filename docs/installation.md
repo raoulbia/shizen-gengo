@@ -1,10 +1,22 @@
-Commands
-========
+Installation
+============
 
-The Makefile contains the central entry points for common tasks related to this project.
+Create a Virtual Environment (Recommended)
+------------------------------------------
 
-Syncing data to S3
-^^^^^^^^^^^^^^^^^^
+With Conda:
 
-* `make sync_data_to_s3` will use `aws s3 sync` to recursively sync files in `data/` up to `s3://[OPTIONAL] your-bucket-for-syncing-data (do not include 's3://')/data/`.
-* `make sync_data_from_s3` will use `aws s3 sync` to recursively sync files from `s3://[OPTIONAL] your-bucket-for-syncing-data (do not include 's3://')/data/` to `data/`.
+.. code-block:: shell
+
+    $ conda create --name gengo python=3.7
+    $ source activate gengo
+    (gengo) $
+   
+
+Pip Install
+------------
+
+.. code-block:: shell
+
+    (gengo) $ pip install shizen-gengo==0.1.0
+
