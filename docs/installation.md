@@ -18,5 +18,5 @@ Pip Install
 
 .. code-block:: shell
 
-    (gengo) $ pip install shizen-gengo==0.1.0
+    (gengo) $ pip install shizen-gengo
 
