@@ -12,6 +12,7 @@ with open('README.md') as f:
     LONG_DESCRIPTION = f.read()
 
 AUTHOR = 'Raoul Biagioni'
+AUTHOR_EMAIL = 'raoulbia.research@gmail.com'
 URL = 'https://github.com/raoulbia/shizen_gengo.git'
 DOWNLOAD_URL = 'https://github.com/raoulbia/shizen_gengo/archive/0.1.0.tar.gz'
 
@@ -24,6 +25,7 @@ setup(
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     author=AUTHOR,
+    author_email = AUTHOR_EMAIL,
     url=URL,
     download_url = DOWNLOAD_URL,
     install_requires=['nltk',
