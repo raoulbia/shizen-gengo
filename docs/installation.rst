@@ -5,7 +5,7 @@ Installation
 
 With Conda:
 
-   .. code-block:: shell
+.. code-block:: shell
 
     $ conda create --name gengo python=3.7
     $ source activate gengo
@@ -14,7 +14,7 @@ With Conda:
 
 **Pip Install**
 
-   .. code-block:: shell
+.. code-block:: shell
 
     (gengo) $ pip install shizen-gengo
 
