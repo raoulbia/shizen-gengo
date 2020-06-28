@@ -1,4 +1,4 @@
 About
 =====
 
-:code:`shizen_gengo` is a Python library for simplifying common hands on NLP tasks.
+``shizen_gengo`` is a Python library for simplifying common hands on NLP tasks.

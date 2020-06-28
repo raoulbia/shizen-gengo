@@ -1,22 +1,20 @@
 Installation
 ============
 
-Create a Virtual Environment (Recommended)
-------------------------------------------
+**Create a Virtual Environment (Recommended)**
 
 With Conda:
 
-.. code-block:: shell
+   .. code-block:: shell
 
     $ conda create --name gengo python=3.7
     $ source activate gengo
     (gengo) $
    
 
-Pip Install
-------------
+**Pip Install**
 
-.. code-block:: shell
+   .. code-block:: shell
 
     (gengo) $ pip install shizen-gengo
 
