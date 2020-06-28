@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# shizen-gengo documentation build configuration file, created by
+# shizen_gengo documentation build configuration file, created by
 # sphinx-quickstart on Tue Jul 26 15:40:16 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -19,7 +19,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../shizen-gengo/'))
+sys.path.insert(0, os.path.abspath('../shizen_gengo/'))
 # import sphinx_automodapi
 import sphinx_rtd_theme
 from recommonmark.parser import CommonMarkParser
@@ -66,7 +66,7 @@ source_suffix = ['.rst', '.md']
 master_doc = 'index'
 
 # General information about the project.
-project = 'shizen-gengo'
+project = 'shizen_gengo'
 copyright = '2020, Raoul Biagioni'
 author = 'Raoul Biagioni'
 
@@ -123,7 +123,7 @@ add_module_names = False
 pygments_style = 'sphinx'
 
 # A list of ignored prefixes for module index sorting.
-modindex_common_prefix = ['shizen-gengo.']
+modindex_common_prefix = ['shizen_gengo.']
 
 # If true, keep warnings as "system message" paragraphs in the built documents.
 # keep_warnings = False
@@ -151,7 +151,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-# html_title = 'shizen-gengo v0.1.0'
+# html_title = 'shizen_gengo v0.1.0'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
@@ -280,7 +280,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'shizen-gengo.tex', 'shizen-gengo Documentation',
+    (master_doc, 'shizen_gengo.tex', 'shizen_gengo Documentation',
      'Raoul Biagioni', 'manual'),
 ]
 
@@ -322,7 +322,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'shizen-gengo', 'shizen-gengo Documentation',
+    (master_doc, 'shizen_gengo', 'shizen_gengo Documentation',
      [author], 1)
 ]
 
@@ -337,8 +337,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'shizen-gengo', 'shizen-gengo Documentation',
-     author, 'shizen-gengo', 'One line description of project.',
+    (master_doc, 'shizen_gengo', 'shizen_gengo Documentation',
+     author, 'shizen_gengo', 'One line description of project.',
      'Miscellaneous'),
 ]
 

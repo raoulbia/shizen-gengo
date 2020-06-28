@@ -1,5 +1,5 @@
 """
-this text is in shizen-gengo/setup.py
+this text is in shizen_gengo/setup.py
 """
 
 __version__ = '0.1.0'

@@ -1,5 +1,5 @@
 """
-this text is in shizen-gengo/preprocess_text/init.py
+this text is in shizen_gengo/preprocess_text/init.py
 """
 from .nltkmodules import *
 from .text_utils import remove_nl_cr, remove_digits, remove_non_char, custom_replace, remove_url, remove_email, \

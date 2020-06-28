@@ -135,3 +135,6 @@ def remove_punctuation(text):
     """
     sent = text.translate(punct_dict)
     return sent
+
+if __name__ == "__main__":
+    pass
