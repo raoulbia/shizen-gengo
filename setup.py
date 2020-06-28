@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 import shizen_gengo
 
 VERSION = shizen_gengo.__version__
-NAME = 'shizen gengo'
+NAME = 'shizen_gengo'
 DESCRIPTION = 'A set of python functions for common hand-on NLP tasks'
 
 with open('README.md') as f:
