@@ -15,11 +15,10 @@ def get_df():
     return df
 
 def test_search():
-
     dfcol = r'resolve_close_notes'
     res = utils.search(get_df(), dfcol, tok = r'ä')
     print('\n{}'.format(res.head()))
-
+    print(len(res))
 # def test_search_window():
 #     col2search = 'resolve_close_notes'
 #     res = utils.search_window(df_col, r'@')
