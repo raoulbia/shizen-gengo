@@ -1,25 +1,28 @@
 #!/usr/bin/env python3
-
-import explore.search_utils as utils
+import explore.explore_utils as utils
 import pandas as pd
-import numpy as np
-
-pd.set_option('display.max_rows', None)
-pd.set_option('display.max_columns', None)
-pd.set_option('display.width', 150)
-pd.set_option('display.max_colwidth', 150)
 
 
 def get_df():
     df = pd.read_csv("../local-data/raw/bs_sample.csv", index_col=0)
     return df
 
+
 def test_search():
     dfcol = r'resolve_close_notes'
-    res = utils.search(get_df(), dfcol, tok = r'ä')
+    res = utils.search(get_df(), dfcol, tok=r'ä')
     print('\n{}'.format(res.head()))
     print(len(res))
-# def test_search_window():
+
+
+#TODO
+def test_search_window():
+    pass
 #     col2search = 'resolve_close_notes'
 #     res = utils.search_window(df_col, r'@')
 #     print('\n{}'.format(res.head()))
+
+
+def test_check_missing_values():
+    df = get_df()
+    print('\n{}'.format(utils.check_missing_values(df)))

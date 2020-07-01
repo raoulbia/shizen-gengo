@@ -2,6 +2,8 @@
 Functions to search for text in a pandas dataframe column.
 """
 
-from .search_utils import search
+from .explore_utils import *
 
-__all__ = ['search']
+__all__ = ['search',
+           'search_window',
+           'check_missing_values']

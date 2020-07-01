@@ -1,46 +1,34 @@
 #!/usr/bin/env python3
-
-import io
 import preprocess_text.text_utils as utils
 import pandas as pd
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
-pd.set_option('display.width', 130)
-pd.set_option('display.max_colwidth', 130)
-# print('\n{}'.format())
-
-def get_df():
-    df = pd.read_csv("../local-data/raw/bs_sample.csv", index_col=0)
-    return df
+pd.set_option('display.width', None)
+pd.set_option('display.max_colwidth', None)
 
 
-# def get_some_text(record=None):
-#     df = pd.read_csv("../local-data/raw/bs_sample.csv", index_col=0)
-#
-#     # select dataframe column with text
-#     df_col = df.resolve_close_notes.dropna()
-#     if record:
-#         return df_col.loc[record]
-#     return df_col.sample(10)
-#
-# def test_get_some_text():
-#     print('\n{}'.format(get_some_text()))
+def get_df(name='bs'):
+    if name == 'bat':
+        return pd.read_csv("../local-data/raw/bat_sample2_original_headers.csv", encoding = "ISO-8859-1")
+    return pd.read_csv("../local-data/raw/bs_sample.csv", index_col=0)
 
 
 def test_remove_nl_cr():
-    examples = ['INC3356469', 'INC4423232']  # nl, cr, consec. spaces
     df = get_df()
+    examples = ['INC3356469', 'INC4423232']
     df = df.loc[examples]
     dfcol = r'resolve_close_notes'
-    # dfcol = get_some_text(examples)
     print('\nbefore:\n{}'.format(df[dfcol]))
     df['cleaned'] = utils.remove_nl_cr(df[dfcol])
     print('\nafter:\n{}'.format(df['cleaned']))
 
 
-#TODO
 def test_remove_repeating_letters():
-    df = get_df().sample(5)
+    df = get_df(name='bat')
+    examples = df[df['Incident ID'].isin(['CH3335178', 'CH4685020'])]['Customer Display Name']
+    print('\n{}'.format(examples))
+    df['Customer Display Name'] = utils.remove_repeating_letters(df['Customer Display Name'])
+    print('\n{}'.format(examples))
 
 
 def test_remove_consecutive_spaces():
@@ -110,13 +98,14 @@ def test_remove_email():
 
 
 def test_remove_accented_chars():
-    examples = ['INC3098065']
     df = get_df()
+    examples = ['INC3098065']
     df = df.loc[examples]
     dfcol = r'resolve_close_notes'
     print('\nbefore:\n{}'.format(df[dfcol].head()))
     df['cleaned'] = utils.remove_accented_chars(df[dfcol])
     print('\nafter:\n{}'.format(df['cleaned']))
+    print(type(df['cleaned']))
 
 
 def test_remove_punctuation():
@@ -125,16 +114,18 @@ def test_remove_punctuation():
     df = df.loc[examples]
     dfcol = r'resolve_close_notes'
     print('\nbefore:\n{}'.format(df[dfcol].head()))
-    df['cleaned'] = df[dfcol].apply(lambda x : utils.remove_punctuation(x))
+    df['cleaned'] = utils.remove_punctuation(df[dfcol])
     print('\nafter:\n{}'.format(df['cleaned']))
 
 
 def test_remove_stopwords():
-    df = get_df().sample(5)
+    df = get_df()
+    examples = ['INC3356469', 'INC4423232']
+    df = df.loc[examples] # speed up test
     dfcol = r'resolve_close_notes'
-    print('\nbefore:\n{}'.format(df[dfcol].head()))
-    df['cleaned'] = df[dfcol].apply(lambda x : utils.remove_stopwords(x))
-    print('\nafter:\n{}'.format(df['cleaned'].head()))
+    print('\nbefore:\n{}'.format(df.loc[examples][dfcol]))
+    df['cleaned'] = utils.remove_stopwords(df[dfcol])
+    print('\nafter:\n{}'.format(df.loc[examples]['cleaned']))
 
 
 #TODO

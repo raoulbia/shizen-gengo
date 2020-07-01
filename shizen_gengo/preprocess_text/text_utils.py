@@ -13,150 +13,152 @@ wnl = nltk.WordNetLemmatizer()
 tokenizer = RegexpTokenizer(r'\w+')
 
 
-def remove_nl_cr(dataframe_col):
+def remove_nl_cr(df_col):
     """
     Remove new line and/or carriage return from dataframe column.
 
     Linux uses :code:`\\n` for a new-line, Windows `\\r\\n` and old Macs `\\r`
 
-    :param dataframe_col: a single dataframe column
-    :return: a single dataframe column
+    :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
+    :return: a single dataframe column <class 'pandas.core.series.Series'>
     """
-    if dataframe_col.ndim > 1:
+    if df_col.ndim > 1:
         raise Exception ("not a dataframe column")
-    return dataframe_col.replace({'(\r\n|\r|\n)': ' '}, regex=True)
+    return df_col.replace({'(\r\n|\r|\n)': ' '}, regex=True)
 
 
-def remove_digits(dataframe_col):
+def remove_digits(df_col):
     """
     Remove digits.
 
-    :param dataframe_col: a single dataframe column
-    :return: a single dataframe column
+    :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
+    :return: a single dataframe column <class 'pandas.core.series.Series'>
     """
-    if dataframe_col.ndim > 1:
+    if df_col.ndim > 1:
         raise Exception("not a dataframe column")
-    return dataframe_col.str.replace(r'[0-9]+', '')
+    return df_col.str.replace(r'[0-9]+', '')
 
 
-def remove_non_char(dataframe_col):
+def remove_non_char(df_col):
     """
     Remove non-alphabetic tokens:
 
      :code:`[#<>=.,;:$&*|?\'\"\-()%]`
 
-    :param dataframe_col: a single dataframe column
-    :return: a single dataframe column
+    :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
+    :return: a single dataframe column <class 'pandas.core.series.Series'>
     """
-    if dataframe_col.ndim > 1:
+    if df_col.ndim > 1:
         raise Exception("not a dataframe column")
-    return dataframe_col.str.replace(r'[#<>=.,;:$&*|?\'\"\-()%]', ' ')
+    return df_col.str.replace(r'[#<>=.,;:$&*|?\'\"\-()%]', ' ')
 
 
-def custom_replace(dataframe_col, change_from='', change_to=''):
+def custom_replace(df_col, change_from='', change_to=''):
     """
     Replace tokens.
 
-    :param dataframe_col: a single dataframe column
+    :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
     :param change_from: string
     :param change_to: string
-    :return: a single dataframe column
+    :return: a single dataframe column <class 'pandas.core.series.Series'>
     """
-    if dataframe_col.ndim > 1:
+    if df_col.ndim > 1:
         raise Exception("not a dataframe column")
-    return dataframe_col.str.replace(change_from, change_to, regex=True)
+    return df_col.str.replace(change_from, change_to, regex=True)
 
 
-def remove_url(dataframe_col):
+def remove_url(df_col):
     """
     Remove hyperlink / url.
 
-    :param dataframe_col: a single dataframe column
-    :return: a single dataframe column
+    :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
+    :return: a single dataframe column <class 'pandas.core.series.Series'>
     """
-    if dataframe_col.ndim > 1:
+    if df_col.ndim > 1:
         raise Exception("not a dataframe column")
-    return dataframe_col.str.replace(r'http\S+', '')
+    return df_col.str.replace(r'http\S+', '')
 
 
-def remove_email(dataframe_col):
+def remove_email(df_col):
     """
     Remove email address.
 
-    :param dataframe_col: a single dataframe column
-    :return: a single dataframe column
+    :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
+    :return: a single dataframe column <class 'pandas.core.series.Series'>
     """
-    if dataframe_col.ndim > 1:
+    if df_col.ndim > 1:
         raise Exception("not a dataframe column")
-    return dataframe_col.str.replace(r'\S*@\S*\s?', '')
+    return df_col.str.replace(r'\S*@\S*\s?', '')
 
 
-def remove_consecutive_spaces(dataframe_col):
+def remove_consecutive_spaces(df_col):
     """
     Remove consecutive white spaces.
 
-    :param dataframe_col: a single dataframe column
-    :return: a single dataframe column
+    :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
+    :return: a single dataframe column <class 'pandas.core.series.Series'>
     """
-    if dataframe_col.ndim > 1:
+    if df_col.ndim > 1:
         raise Exception("not a dataframe column")
-    return dataframe_col.str.replace(r'\s+', ' ', regex=True)
+    return df_col.str.replace(r'\s+', ' ', regex=True)
 
 
-def remove_repeating_letters(dataframe_col):
+def remove_repeating_letters(df_col):
     """
     Remove repeating letters with a minimum threshold of 2.
 
     The threshold prevents repeated letters in names e.g. Aaron to be preserved.
 
-    :param dataframe_col: a single dataframe column
-    :return: a single dataframe column
+    :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
+    :return: a single dataframe column <class 'pandas.core.series.Series'>
     """
-    if dataframe_col.ndim > 1:
+    if df_col.ndim > 1:
         raise Exception("not a dataframe column")
     min_threshold_rep = 2
-    return dataframe_col.str.replace(r'(\w)\1{%d,}'%(min_threshold_rep-1), r'\1')
+    return df_col.str.replace(r'(\w)\1{%d,}' % (min_threshold_rep - 1), r'\1')
 
 
-def remove_accented_chars(dataframe_col):
+def remove_accented_chars(df_col):
     """
     Remove accented characters.
 
-    :param dataframe_col: a single dataframe column
-    :return: a single dataframe column
+    :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
+    :return: a single dataframe column <class 'pandas.core.series.Series'>
     """
-    # Convert the dataframe column to a list for faster searching.
-    listed = dataframe_col.to_list()
+    listed = df_col.to_list()
     return [(unicodedata.normalize('NFKD', str(text))
                 .encode('ascii', 'ignore')
                 .decode('utf-8', 'ignore')) for text in listed]
-    # return new_text
 
 
-def remove_punctuation(text):
+def remove_punctuation(df_col):
     """
     Remove punctuation.
 
-    :param text:
-    :return:
+    :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
+    :return: a single dataframe column <class 'pandas.core.series.Series'>
     """
-    sent = text.translate(punct_dict)
-    return sent
+    listed = df_col.to_list()
+    return [text.translate(punct_dict) for text in listed]
 
 
-def remove_stopwords(text):
+def remove_stopwords(df_col):
     """
-    remove stopwords
-    :param text:
-    :return:
-    """
-    tokens = tokenizer.tokenize(str(text))
-    filtered_words = [w for w in tokens
-#                       if len(w) > 2
-                      if not w in stopwords]
-    filtered_words = [wnl.lemmatize(w) for w in filtered_words]
-    return " ".join(filtered_words)
+    Remove stopwords.
 
+    Also removes carriage return `\\r` and line break `\\n` characters.
+
+    :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
+    :return: a single dataframe column <class 'pandas.core.series.Series'>
+    """
+    ls = []
+    listed = df_col.to_list()
+    for text in listed:
+        tokens = tokenizer.tokenize(str(text))
+        filtered_words = [w for w in tokens if not w in stopwords]
+        filtered_words = [wnl.lemmatize(w) for w in filtered_words]
+        ls.append(" ".join(filtered_words))
+    return ls
 
 if __name__ == "__main__":
     pass

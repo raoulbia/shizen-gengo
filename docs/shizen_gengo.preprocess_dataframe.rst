@@ -6,4 +6,4 @@ Preprocess Dataframe
 .. autosummary::
     :toctree: generated
 
-    rename_col
+    rename_column
