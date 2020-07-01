@@ -3,6 +3,7 @@ import numpy as np
 
 def rename_column(df_col_names, before, after):
     """
+    Rename column.
 
     :param df_col_names: dataframe column names <class 'pandas.core.indexes.base.Index'>
     :param before: string

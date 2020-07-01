@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.abspath('../shizen_gengo/'))
 # import sphinx_automodapi
 import sphinx_rtd_theme
 from recommonmark.parser import CommonMarkParser
-sys.path.append(os.path.join(os.path.dirname(__file__), '../'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
 import shizen_gengo
 
 # -- General configuration ------------------------------------------------
@@ -52,8 +52,9 @@ inline_highlight_literals = False
 
 #
 
-# autosummary_generate = True
-# numpydoc_show_class_members = False
+autosummary_generate = True
+# autosummary_imported_members = True
+# numpydoc_show_class_members = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

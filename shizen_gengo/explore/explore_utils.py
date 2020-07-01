@@ -35,7 +35,7 @@ def search_window(df_col, token = ''):
 
 def check_missing_values(df):
     """
-    Returns a dataframe with missing values count for all columns,
+    Returns a dataframe with missing values count for all columns
     sorted in descending order.
 
     :param df: dataframe

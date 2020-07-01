@@ -1,7 +1,8 @@
 """
-this text is in shizen_gengo/setup.py
+:code:`shizeng gengo` is a Python library for common NLP taks performed onn Pandas dataframes..
 """
 
-__version__ = '0.1.1'
+
+__version__ = '0.1.2'
 
 __all__ = ['explore', 'preprocess_dataframe', 'preprocess_text']

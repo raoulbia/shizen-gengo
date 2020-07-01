@@ -1,10 +1,13 @@
 Preprocess Text
 ===============
 
-.. automodule:: shizen_gengo.preprocess_text
+.. rubric:: Module
+
+.. automodule:: preprocess_text
 
 .. autosummary::
     :toctree: generated
+    :template: function.rst
 
     remove_nl_cr
     remove_digits
@@ -16,3 +19,4 @@ Preprocess Text
     remove_stopwords
     remove_accented_chars
     remove_punctuation
+    remove_repeating_letters

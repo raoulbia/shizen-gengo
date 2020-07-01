@@ -1,10 +1,13 @@
 Explore
 =======
 
-.. automodule:: shizen_gengo.explore
+.. rubric:: Module
+
+.. automodule:: explore
 
 .. autosummary::
     :toctree: generated
+    :template: function.rst
 
-
-    search
+     search
+     check_missing_values

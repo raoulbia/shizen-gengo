@@ -22,4 +22,5 @@ Contents:
 Changelog
 *********
 
+* v 0.1.2 further development of new or improvement of existing functions and docstring
 * v 0.1.1 pre-release
