@@ -38,6 +38,11 @@ def test_remove_nl_cr():
     print('\nafter:\n{}'.format(df['cleaned']))
 
 
+#TODO
+def test_remove_repeating_letters():
+    df = get_df().sample(5)
+
+
 def test_remove_consecutive_spaces():
     examples = ['INC3356469', 'INC4423232']  # nl, cr, consec. spaces
     df = get_df()
@@ -110,7 +115,7 @@ def test_remove_accented_chars():
     df = df.loc[examples]
     dfcol = r'resolve_close_notes'
     print('\nbefore:\n{}'.format(df[dfcol].head()))
-    df['cleaned'] = df[dfcol].apply(lambda x : utils.remove_accented_chars(x))
+    df['cleaned'] = utils.remove_accented_chars(df[dfcol])
     print('\nafter:\n{}'.format(df['cleaned']))
 
 
@@ -132,6 +137,8 @@ def test_remove_stopwords():
     print('\nafter:\n{}'.format(df['cleaned'].head()))
 
 
+#TODO
 def test_all():
     df = get_df().sample(5)
+
 
