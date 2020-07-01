@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.abspath('../shizen_gengo/'))
 # import sphinx_automodapi
 import sphinx_rtd_theme
 from recommonmark.parser import CommonMarkParser
-sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../'))
 import shizen_gengo
 
 # -- General configuration ------------------------------------------------
