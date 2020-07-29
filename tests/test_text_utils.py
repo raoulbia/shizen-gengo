@@ -6,9 +6,6 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
 pd.set_option('display.max_colwidth', None)
 
-test_string = """Sync - Can't do Sync - Server issue\r\nÂ \r\nDSR ID: V01AV375\r\nÂ \r\nÂ \r\nÂ \r\nÂ \r\nÂ \r\nWhen 
-Occurred: 2018-10-01T07:40:00\r\nÂ \r\nImpact: Low\r\nÂ \r\nSteps Taken:"""
-
 def get_df(name='bs'):
 
     if name == 'bat':

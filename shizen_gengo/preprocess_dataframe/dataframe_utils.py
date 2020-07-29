@@ -40,8 +40,7 @@ def fill_missing(df_col, val='MISSING'):
     """
     Fill missing values with string of choice. Default is "MISSING".
 
-    The function first replaces cells with an empty string and/or
-     cells with only spaces with `np.nan`.
+    The function first replaces cells with an empty string and/or cells with only spaces with `np.nan`.
 
     :param df_col: a single dataframe column
     :param val: string

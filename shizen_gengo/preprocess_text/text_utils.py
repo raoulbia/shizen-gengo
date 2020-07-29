@@ -39,9 +39,7 @@ def remove_digits(df_col):
 
 def remove_non_char(df_col):
     """
-    Remove non-alphabetic tokens:
-
-     :code:`[#<>=.,;:$&*|?\'\"\-()%]`
+    Remove non-alphabetic tokens: :code:`[#<>=.,;:$&*|?\'\"\-()%]`
 
     :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
     :return: a single dataframe column <class 'pandas.core.series.Series'>
