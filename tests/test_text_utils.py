@@ -6,11 +6,18 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
 pd.set_option('display.max_colwidth', None)
 
+test_string = """Sync - Can't do Sync - Server issue\r\nÂ \r\nDSR ID: V01AV375\r\nÂ \r\nÂ \r\nÂ \r\nÂ \r\nÂ \r\nWhen 
+Occurred: 2018-10-01T07:40:00\r\nÂ \r\nImpact: Low\r\nÂ \r\nSteps Taken:"""
 
 def get_df(name='bs'):
+
     if name == 'bat':
-        return pd.read_csv("../local-data/raw/bat_sample2_original_headers.csv", encoding = "ISO-8859-1")
-    return pd.read_csv("../local-data/raw/bs_sample.csv", index_col=0)
+        return pd.read_csv("../local-data/raw/bat_sample2_original_headers.csv",
+                           encoding = "ISO-8859-1", # to prevent unicode error
+                           index_col=5)
+
+    return pd.read_csv("../local-data/raw/bs_sample.csv",
+                       index_col=0)
 
 
 def test_remove_nl_cr():
@@ -18,6 +25,18 @@ def test_remove_nl_cr():
     examples = ['INC3356469', 'INC4423232']
     df = df.loc[examples]
     dfcol = r'resolve_close_notes'
+
+    print('\nbefore:\n{}'.format(df[dfcol]))
+    df['cleaned'] = utils.remove_nl_cr(df[dfcol])
+    print('\nafter:\n{}'.format(df['cleaned']))
+
+
+def test_remove_nl_cr2():
+    df = get_df(name='bat')
+    examples = ['CH3434657']
+    df = df.loc[examples]
+    dfcol = r'Description'
+
     print('\nbefore:\n{}'.format(df[dfcol]))
     df['cleaned'] = utils.remove_nl_cr(df[dfcol])
     print('\nafter:\n{}'.format(df['cleaned']))
