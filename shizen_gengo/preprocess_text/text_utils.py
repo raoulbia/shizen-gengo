@@ -13,18 +13,16 @@ wnl = nltk.WordNetLemmatizer()
 tokenizer = RegexpTokenizer(r'\w+')
 
 
-def remove_nl_cr(df_col):
+def remove_newline_chars(df_col):
     """
     Remove new line and/or carriage return from dataframe column.
-
-    Linux uses :code:`\\n` for a new-line, Windows `\\r\\n` and old Macs `\\r`
 
     :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
     :return: a single dataframe column <class 'pandas.core.series.Series'>
     """
     if df_col.ndim > 1:
         raise Exception ("not a dataframe column")
-    return df_col.replace({'(\r\n|\r|\n)': ' '}, regex=True)
+    return df_col.replace({r'(\r\n|\r|\n|\\r\\n|\\r|\\n)+' : ' '}, regex=True)
 
 
 def remove_digits(df_col):

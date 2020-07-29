@@ -9,7 +9,7 @@ Preprocess Text
     :toctree: generated
     :template: function.rst
 
-    remove_nl_cr
+    remove_newline_chars
     remove_digits
     remove_non_char
     custom_replace

@@ -20,25 +20,25 @@ def get_df(name='bs'):
                        index_col=0)
 
 
-def test_remove_nl_cr():
+def test_remove_newline_chars():
     df = get_df()
     examples = ['INC3356469', 'INC4423232']
     df = df.loc[examples]
     dfcol = r'resolve_close_notes'
 
     print('\nbefore:\n{}'.format(df[dfcol]))
-    df['cleaned'] = utils.remove_nl_cr(df[dfcol])
+    df['cleaned'] = utils.remove_newline_chars(df[dfcol])
     print('\nafter:\n{}'.format(df['cleaned']))
 
 
-def test_remove_nl_cr2():
+def test_remove_newline_chars2():
     df = get_df(name='bat')
     examples = ['CH3434657']
     df = df.loc[examples]
     dfcol = r'Description'
 
     print('\nbefore:\n{}'.format(df[dfcol]))
-    df['cleaned'] = utils.remove_nl_cr(df[dfcol])
+    df['cleaned'] = utils.remove_newline_chars(df[dfcol])
     print('\nafter:\n{}'.format(df['cleaned']))
 
 

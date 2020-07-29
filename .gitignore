@@ -81,6 +81,9 @@ false
 /data/
 /local-data/
 
+# exclude notebooks directory
+/notebooks
+
 # Mac OS-specific storage files
 .DS_Store
 
