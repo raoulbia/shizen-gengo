@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import io
-import preprocess_dataframe.dataframe_utils as utils
+import shizen_gengo.preprocess_dataframe.dataframe_utils as utils
 import pandas as pd
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)

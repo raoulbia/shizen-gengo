@@ -13,7 +13,7 @@ setup(
   name = 'shizen_gengo',
   # packages = ['shizen_gengo'],
   packages=find_packages(exclude=('tests', 'docs')),
-  version = '0.1.2',
+  version = '0.1.3',
   license='	gpl-3.0',
   description = 'Python Library for common NLP Tasks',
   long_description=long_description,

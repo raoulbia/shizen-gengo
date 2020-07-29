@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import preprocess_text.text_utils as utils
+import shizen_gengo.preprocess_text.text_utils as utils
 import pandas as pd
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
@@ -30,7 +30,7 @@ def test_remove_newline_chars():
 
 def test_remove_newline_chars2():
     df = get_df(name='bat')
-    examples = ['CH3434657']
+    examples = ['CH3434657', 'CH4418347']
     df = df.loc[examples]
     dfcol = r'Description'
 

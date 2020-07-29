@@ -28,7 +28,6 @@ def standardise_column_headers(df_col_names, before=None, after=None):
     :param after: string
     :return: dataframe column names <class 'pandas.core.indexes.base.Index'>
     """
-    print(type(df_col_names))
     df_col_names = map(str.lower, df_col_names)
     df_col_names = map(lambda x : x.replace(' ', '_'), df_col_names)
     if before and after:
