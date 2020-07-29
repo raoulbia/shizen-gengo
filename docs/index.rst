@@ -22,5 +22,6 @@ Contents:
 Changelog
 *********
 
+* v 0.1.3 improve function to remove new line and carriage return characters
 * v 0.1.2 further development of new or improvement of existing functions and docstring
 * v 0.1.1 pre-release
