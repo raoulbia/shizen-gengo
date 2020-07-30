@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import shizen_gengo.explore.explore_utils as utils
+import explore.explore_utils as utils
 import pandas as pd
 
 

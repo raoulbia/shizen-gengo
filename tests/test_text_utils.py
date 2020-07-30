@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import shizen_gengo.preprocess_text.text_utils as utils
+import preprocess_text.text_utils as utils
 import pandas as pd
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
