@@ -9,6 +9,11 @@ def rename_column(df_col_names, before, after):
     :param before: string
     :param after: string
     :return: dataframe column names <class 'pandas.core.indexes.base.Index'>
+
+    Example
+    -------
+    >>> from shizen_gengo.preprocess_dataframe import dataframe_utils
+    >>> df.columns = dataframe_utils.rename_column(df.columns, 'Description2', 'Description')
     """
     return map(lambda x: str.replace(x, before, after), df_col_names)
 

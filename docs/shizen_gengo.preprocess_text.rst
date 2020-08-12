@@ -1,9 +1,11 @@
 Preprocess Text
 ===============
 
-.. rubric:: Module
-
+.. currentmodule:: preprocess_text
 .. automodule:: preprocess_text
+
+Preprocess Text Utils
+------------------------
 
 .. autosummary::
     :toctree: generated

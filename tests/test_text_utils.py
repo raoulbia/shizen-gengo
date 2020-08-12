@@ -41,10 +41,10 @@ def test_remove_newline_chars2():
 
 def test_remove_repeating_letters():
     df = get_df(name='bat')
-    examples = df[df['Incident ID'].isin(['CH3335178', 'CH4685020'])]['Customer Display Name']
-    print('\n{}'.format(examples))
-    df['Customer Display Name'] = utils.remove_repeating_letters(df['Customer Display Name'])
-    print('\n{}'.format(examples))
+    examples = df[df.index.isin(['CH3335178', 'CH4685020'])]
+    print('\n{}'.format(examples['Customer Display Name']))
+    examples['Customer Display Name'] = utils.remove_repeating_letters(examples['Customer Display Name'])
+    print('\n{}'.format(examples['Customer Display Name']))
 
 
 def test_remove_consecutive_spaces():

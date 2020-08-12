@@ -1,9 +1,11 @@
 Explore
 =======
 
-.. rubric:: Module
-
+.. currentmodule:: explore
 .. automodule:: explore
+
+Explore Utils
+-------------
 
 .. autosummary::
     :toctree: generated

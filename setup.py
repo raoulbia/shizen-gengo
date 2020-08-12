@@ -2,6 +2,7 @@
 
 from distutils.core import setup
 from setuptools import find_packages
+from shizen_gengo import __version__
 
 # read the contents of your README file
 from os import path
@@ -13,7 +14,7 @@ setup(
   name = 'shizen_gengo',
   # packages = ['shizen_gengo'],
   packages=find_packages(exclude=('tests', 'docs')),
-  version = '0.1.4',
+  version = __version__,
   license='	gpl-3.0',
   description = 'Python Library for common NLP Tasks',
   long_description=long_description,
@@ -24,7 +25,7 @@ setup(
   project_urls={
         "Documentation": "https://shizen-gengo.readthedocs.io/en/latest/"
     },
-  download_url = 'https://github.com/raoulbia/shizen_gengo/archive/0.1.0.tar.gz',
+  # download_url = 'https://github.com/raoulbia/shizen_gengo/archive/0.1.0.tar.gz',
   keywords = ['nlp', 'pandas', 'dataframe'],
   install_requires=['nltk',
                   'pandas',

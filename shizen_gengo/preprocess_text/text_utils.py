@@ -19,6 +19,11 @@ def remove_newline_chars(df_col):
 
     :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
     :return: a single dataframe column <class 'pandas.core.series.Series'>
+
+    Example
+    -------
+    >>> from shizen_gengo.preprocess_text import text_utils
+    >>> df.col_name = text_utils.remove_newline_chars(df.col_name)
     """
     if df_col.ndim > 1:
         raise Exception ("not a dataframe column")

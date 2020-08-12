@@ -9,6 +9,11 @@ def search(df, df_col='', tok=''):
     :param df_col: string
     :param tok: string
     :return: dataframe
+
+    Example
+    -------
+    >>> from shizen_gengo.explore import explore_utils
+    >>> df.col_name = explore_utils.search(df, 'col_name', 'keyword')
     """
     df = df[df.index.notnull()]
     # Convert the dataframe column to a list for faster searching.

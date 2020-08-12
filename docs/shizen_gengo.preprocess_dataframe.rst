@@ -1,9 +1,11 @@
 Preprocess Dataframe
 ====================
 
-.. rubric:: Module
-
+.. currentmodule:: preprocess_dataframe
 .. automodule:: preprocess_dataframe
+
+Preprocess Dataframe Utils
+---------------------------
 
 .. autosummary::
     :toctree: generated

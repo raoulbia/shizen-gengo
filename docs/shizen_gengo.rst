@@ -2,7 +2,6 @@ API
 ===
 
 .. toctree::
-    :titlesonly:
     :maxdepth: 1
 
     shizen_gengo.explore
