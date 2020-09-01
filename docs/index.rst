@@ -22,6 +22,7 @@ Contents:
 Changelog
 *********
 
+* v 0.1.6 fix __init__ imports
 * v 0.1.5 add clean_text function to perform all pre-process text tasks in one go.
 * v 0.1.4 minor bug fix (remove print statement).
 * v 0.1.3 improve function to remove new line and carriage return characters.
