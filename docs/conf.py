@@ -53,7 +53,7 @@ inline_highlight_literals = False
 #
 version = shizen_gengo.__version__
 autosummary_generate = True
-autosummary_imported_members = True
+# autosummary_imported_members = True
 # numpydoc_show_class_members = True
 
 # Add any paths that contain templates here, relative to this directory.

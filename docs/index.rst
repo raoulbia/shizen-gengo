@@ -12,7 +12,7 @@ Contents:
 *********
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    intro
    installation
@@ -22,7 +22,8 @@ Contents:
 Changelog
 *********
 
-* v 0.1.4 minor bug fix (remove print statement)
-* v 0.1.3 improve function to remove new line and carriage return characters
-* v 0.1.2 further development of new or improvement of existing functions and docstring
-* v 0.1.1 pre-release
+* v 0.1.5 add clean_text function to perform all pre-process text tasks in one go.
+* v 0.1.4 minor bug fix (remove print statement).
+* v 0.1.3 improve function to remove new line and carriage return characters.
+* v 0.1.2 further development of new or improvement of existing functions and docstring.
+* v 0.1.1 pre-release.

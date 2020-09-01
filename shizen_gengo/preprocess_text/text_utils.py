@@ -2,6 +2,7 @@
 
 import string
 import unicodedata
+import pandas as pd
 import nltk
 from nltk import RegexpTokenizer
 from nltk.corpus import stopwords
@@ -115,7 +116,7 @@ def remove_repeating_letters(df_col):
     """
     if df_col.ndim > 1:
         raise Exception("not a dataframe column")
-    min_threshold_rep = 2
+    min_threshold_rep = 3
     return df_col.str.replace(r'(\w)\1{%d,}' % (min_threshold_rep - 1), r'\1')
 
 
@@ -127,10 +128,10 @@ def remove_accented_chars(df_col):
     :return: a single dataframe column <class 'pandas.core.series.Series'>
     """
     listed = df_col.to_list()
-    return [(unicodedata.normalize('NFKD', str(text))
+    listed = [(unicodedata.normalize('NFKD', str(text))
                 .encode('ascii', 'ignore')
                 .decode('utf-8', 'ignore')) for text in listed]
-
+    return pd.Series(listed)
 
 def remove_punctuation(df_col):
     """
@@ -140,7 +141,8 @@ def remove_punctuation(df_col):
     :return: a single dataframe column <class 'pandas.core.series.Series'>
     """
     listed = df_col.to_list()
-    return [text.translate(punct_dict) for text in listed]
+    listed =  [text.translate(punct_dict) for text in listed]
+    return pd.Series(listed)
 
 
 def remove_stopwords(df_col):
@@ -160,6 +162,40 @@ def remove_stopwords(df_col):
         filtered_words = [wnl.lemmatize(w) for w in filtered_words]
         ls.append(" ".join(filtered_words))
     return ls
+
+def clean_text(df_col):
+    """
+    Function that combines all text pre-processing tasks.
+
+    * remove accented_chars
+    * remove punctuation
+    * remove repeating_letters
+    * remove newline_chars
+    * remove digits
+    * remove non_char
+    * remove url
+    * remove email
+    * remove consecutive_spaces
+    * remove stopwords
+
+    :param df_col: a single dataframe column <class 'pandas.core.series.Series'>
+    :return: a single dataframe column <class 'pandas.core.series.Series'>
+    """
+    if df_col.ndim > 1:
+        raise Exception("not a dataframe column")
+    df_col = remove_accented_chars(df_col)
+    df_col = remove_punctuation(df_col)
+    df_col = remove_repeating_letters(df_col)
+    df_col = remove_newline_chars(df_col)
+    df_col = remove_digits(df_col)
+    df_col = remove_non_char(df_col)
+    # df_col = custom_replace
+    df_col = remove_url(df_col)
+    df_col = remove_email(df_col)
+    df_col = remove_consecutive_spaces(df_col)
+    df_col = remove_stopwords(df_col)
+
+    return df_col
 
 if __name__ == "__main__":
     pass

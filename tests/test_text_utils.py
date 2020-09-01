@@ -145,7 +145,13 @@ def test_remove_stopwords():
 
 
 #TODO
-def test_all():
-    df = get_df().sample(5)
+def test_clean_text():
+    df = get_df()
+    examples = ['INC3356469', 'INC4423232']
+    df = df.loc[examples] # speed up test
+    dfcol = r'resolve_close_notes'
+    print('\nbefore:\n{}'.format(df.loc[examples][dfcol]))
+    df['cleaned'] = utils.clean_text(df[dfcol])
+    print('\nafter:\n{}'.format(df.loc[examples]['cleaned']))
 
 

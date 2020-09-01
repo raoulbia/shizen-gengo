@@ -22,3 +22,4 @@ Preprocess Text Utils
     remove_accented_chars
     remove_punctuation
     remove_repeating_letters
+    clean_text
